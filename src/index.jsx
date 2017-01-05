@@ -20,7 +20,8 @@ export default class RTools{
         devTools:null,
         bar:LoadingBarComponent,
         //pc or wap or other
-        agent:'other'
+        agent:'other',
+        container:'root'
     }){
 
         let Bar = props.bar
@@ -37,7 +38,7 @@ export default class RTools{
                     <Bar />
                 </Connect>
             </BindReact>,
-            document.getElementById('root')
+            document.getElementById(props.container)
         )
     }
 

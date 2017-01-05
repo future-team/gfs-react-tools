@@ -35,5 +35,6 @@ new RTools({
     devTools:DevTools,
     bar:null,
     //pc or wap or other
-    agent:'pc'
+    agent:'pc',
+    container:'root'
 })

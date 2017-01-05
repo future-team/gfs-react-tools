@@ -40,14 +40,20 @@ class Page extends Component{
 
 //调用
 new RTools({
+	//可选
     middleware:[],
+	//必填
     module:Page,
+	//可选
     reducers:[],
+	//可选
     devTools:DevTools,
-	//loadingbar
+	//可选 默认loadingbarComponent
     bar:null,
-    //loadingbar平台（pc/wap/other）other直接使用bar字段作为参数
-    agent:'pc'
+    //可选  loadingbar平台（pc/wap/other）other直接使用bar字段作为参数
+    agent:'pc',
+	//可选  react component放取的节点id
+	container:'root'
 })
 ```
 
