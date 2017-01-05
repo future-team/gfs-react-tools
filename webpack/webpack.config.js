@@ -7,7 +7,7 @@ var es3ifyPlugin = require('es3ify-webpack-plugin');
 var ent = {
     example: [path.join(process.cwd(), 'example/src/index.jsx')]
 };
-ent[config.name] = [path.join(process.cwd(), 'src/index.js')];
+ent[config.name] = [path.join(process.cwd(), 'src/index.jsx')];
 module.exports = {
     entry: ent,
     resolve: {
