@@ -26,6 +26,11 @@ export default class RTools{
 
         let Bar = props.bar
 
+        props.middleware = props.middleware || []
+        props.reducers = props.reducers || []
+        props.agent = props.agent || 'pc'
+        props.container = props.container || 'root'
+        
         if(props.agent === 'pc'){
             Bar = LoadingBarComponent
         }else if(props.agent === 'wap'){
