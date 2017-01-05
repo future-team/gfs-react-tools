@@ -8,7 +8,7 @@ react工具类整合，相关文档字段使用可参考 [gfs-redux-bind-react](
 ```javascript
 
 import RTools from 'gfs-react-tools'
-import {DevTools} from 'gfs-redux-bind-react'
+import Tools from 'gfs-redux-bind-react/lib/Tools'
 
 import React, { Component } from 'react'
 
@@ -47,7 +47,7 @@ new RTools({
 	//可选
     reducers:[],
 	//可选
-    devTools:DevTools,
+    devTools:Tools,
 	//可选 默认loadingbarComponent
     bar:null,
     //可选  loadingbar平台（pc/wap/other）other直接使用bar字段作为参数

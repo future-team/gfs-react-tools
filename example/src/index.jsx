@@ -1,5 +1,5 @@
 import RTools from '../../src/index'
-import {DevTools} from 'gfs-redux-bind-react'
+import Tools from 'gfs-redux-bind-react/lib/Tools'
 
 import React, { Component } from 'react'
 
@@ -32,7 +32,7 @@ new RTools({
     middleware:[],
     module:Page,
     reducers:[],
-    devTools:DevTools,
+    devTools:Tools,
     bar:null,
     //pc or wap or other
     agent:'pc',

@@ -11,33 +11,33 @@ var babel = require('gulp-babel');
 
 var config = require('./package.json');
 
-var error = function(e){
+var error = function(e) {
     console.error(e);
-    if(e.stack){
+    if (e.stack) {
         console.error(e.stack);
     }
     process.exit(1);
 };
-gulp.task('karma', function (done) {
+gulp.task('karma', function(done) {
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
     }, done).start();
 });
 
-gulp.task('open', function () {
+gulp.task('open', function() {
     gulp.src(__filename)
-        .pipe(open({uri: "http://"+(internalIP.v4() || '127.0.0.1')+":8081/index.html"}));
+        .pipe(open({ uri: "http://" + (internalIP.v4() || '127.0.0.1') + ":8081/index.html" }));
 });
 
-gulp.task('hot', function (callback) {
+gulp.task('hot', function(callback) {
     webpackServer();
 
 });
 
 gulp.task('require-webpack', function(done) {
     webpack(webpackConfig).run(function(err, stats) {
-        if(err) throw new gutil.PluginError("require-webpack", err);
+        if (err) throw new gutil.PluginError("require-webpack", err);
         gutil.log("[webpack]", stats.toString({
             // output options
         }));
@@ -48,11 +48,11 @@ gulp.task('require-webpack', function(done) {
 gulp.task('min-webpack', function(done) {
 
     var wbpk = Object.create(webpackConfig);
-    wbpk.output.filename = config.name+'.min.js';
+    wbpk.output.filename = config.name + '.min.js';
     wbpk.plugins.push(new webpack.optimize.UglifyJsPlugin());
 
     webpack(wbpk).run(function(err, stats) {
-        if(err) throw new gutil.PluginError("min-webpack", err);
+        if (err) throw new gutil.PluginError("min-webpack", err);
         gutil.log("[webpack]", stats.toString({
             // output options
         }));
@@ -60,24 +60,24 @@ gulp.task('min-webpack', function(done) {
     });
 });
 
-gulp.task('babel', function(done){
-    return gulp.src('src/**/*.js')
+gulp.task('babel', function(done) {
+    return gulp.src(['src/**/*.js', 'src/**/*.jsx'])
         .pipe(babel())
         .pipe(gulp.dest('lib'));
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
     gulp.watch(['./lib/**/*.*'], ['demo']);
 });
 
-gulp.task('copy',  function(done) {
-    gulp.src(__dirname+'/dist/example.js')
-        .pipe(gulp.dest(__dirname+'/example/dist/'));
-    del([__dirname+'/dist/example.js'],done);
+gulp.task('copy', function(done) {
+    gulp.src(__dirname + '/dist/example.js')
+        .pipe(gulp.dest(__dirname + '/example/dist/'));
+    del([__dirname + '/dist/example.js'], done);
 });
 
 
-gulp.task('default', ['babel','require-webpack']);
-gulp.task('test',['karma']);
-gulp.task('demo', ['hot','open']);
-gulp.task('min',['min-webpack','copy']);
+gulp.task('default', ['babel', 'require-webpack']);
+gulp.task('test', ['karma']);
+gulp.task('demo', ['hot', 'open']);
+gulp.task('min', ['min-webpack', 'copy']);
