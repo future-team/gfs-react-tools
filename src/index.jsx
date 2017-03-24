@@ -50,4 +50,10 @@ export default class RTools{
     static fetch(url,options){
         return fetch.run(url,options)
     }
+    static addLoadingBar(loadingbar){
+        fetch.addLoadingBar(loadingbar)
+    }
+    static addMock(mock){
+        fetch.addMock(mock)
+    }
 }
