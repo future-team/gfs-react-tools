@@ -44,3 +44,4 @@ jscoverage_lib/
 bower_components/
 lib/
 dist/
+.vscode/

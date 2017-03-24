@@ -1,5 +1,6 @@
 import RTools from '../../src/index'
 import Tools from 'gfs-redux-bind-react/lib/Tools'
+import { MaskBarComponent} from 'gfs-loadingbar/lib/index.react'
 
 import React, { Component } from 'react'
 
@@ -33,8 +34,8 @@ new RTools({
     module:Page,
     reducers:[],
     devTools:Tools,
-    bar:null,
+    bar:<MaskBarComponent />,
     //pc or wap or other
-    agent:'pc',
+    agent:'other',
     container:'root'
 })

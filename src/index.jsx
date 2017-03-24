@@ -32,15 +32,15 @@ export default class RTools{
         props.container = props.container || 'root'
         
         if(props.agent === 'pc'){
-            Bar = LoadingBarComponent
+            Bar = <LoadingBarComponent />
         }else if(props.agent === 'wap'){
-            Bar = MaskBarComponent
+            Bar = <MaskBarComponent />
         }
 
         render(
             <BindReact module={props.module} reducers={{...props.reducers, fetching}} middleware={[FetchMiddleware, ...props.middleware]} devTools={props.devTools}>
                 <Connect>
-                    <Bar />
+                    {Bar}
                 </Connect>
             </BindReact>,
             document.getElementById(props.container)
