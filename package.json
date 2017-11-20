@@ -1,6 +1,6 @@
 {
   "name": "gfs-react-tools",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "整合gfs相关功能模块",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "gfs-loadingbar": "^1.0.1",
     "gfs-mock": "^1.0.2",
     "gfs-react-redux-twoway-binding": "^0.1.0",
-    "gfs-redux-bind-react": "^2.0.4",
+    "gfs-redux-bind-react": "^2.0.5",
     "install": "^0.8.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
