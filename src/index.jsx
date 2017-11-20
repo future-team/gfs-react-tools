@@ -44,7 +44,7 @@ export default class RTools{
 
     render(params={} ){
         const _this = this
-        this.bindReactProps = Object.assign({},this.bindReactProps,params)
+        this.bindReactProps ={...this.bindReactProps,...params}// Object.assign({},this.bindReactProps,params)
         let props = this.bindReactProps
         if(props.isServerRender){
             return this.renderServer()
